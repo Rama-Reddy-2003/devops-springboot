@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: springboot-employee-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: springboot-employee
+  template:
+    metadata:
+      labels:
+        app: springboot-employee
+    spec:
+      containers:
+      - name: springboot-employee
+        image: sivajidwarampudi/springboot-employee-app:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: springboot-employee-service
+spec:
+  type: NodePort
+  ports:
+    - port: 8080
+      targetPort: 8080
+      nodePort: 30084  # Unique NodePort reserved for POC 4
+  selector:
+    app: springboot-employee
