@@ -12,8 +12,8 @@ public class EmployeeController {
     private final List<Employee> employees = new ArrayList<>();
 
     public EmployeeController() {
-        employees.add(new Employee(1L, "Rahul Sharma", "DevOps"));
-        employees.add(new Employee(2L, "Priya Patel", "Backend"));
+        employees.add(new Employee(1L, "Dwarmpudi Siavji", "DevOps"));
+        employees.add(new Employee(2L, "Karthik Akshay", "Java"));
     }
 
     @GetMapping
